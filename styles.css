@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    font-family: Arial, sans-serif; /* フォント追加 */
+}
+
+.loader-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* 縦方向に並べる */
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.loader {
+    border: 10px solid #000000;
+    border-top: 10px solid #ffffff;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;  /* 明示的なアニメーション指定 */
+    margin-bottom: 20px; /* テキストとの間にスペース */
+}
+
+p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center; /* テキストを中央寄せに */
+    z-index: 20;
+}
+
+.progress-bar-container {
+    display: flex;
+    flex-direction: column; /* パーセンテージをバーの上に表示する */
+    align-items: center;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 20px;
+    margin-top: 20px;
+    background-color: transparent; /* 背景色を透明に */
+    border: 2px solid #ffffff; /* ふちに色を追加 */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative; /* 親要素にposition指定 */
+    z-index: 5;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #ffffff;
+    animation: load 10s linear infinite;  /* プログレスバーのアニメーション */
+}
+
+.progress-text {
+    margin-bottom: 10px; /* バーとテキストの間にスペース */
+    font-size: 18px;
+    color: #ffffff;
+    z-index: 10;
+}
+
+#rickRollContainer {
+    display: none; /* 最初は非表示 */
+    position: absolute; /* 動画を画面中央に配置 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 完全に中央に配置 */
+    z-index: 1;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes load {
+    0% { width: 0%; }
+    50% { width: 50%; }
+    100% { width: 100%; }
+}

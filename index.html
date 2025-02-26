@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>othello</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+        <p>読み込み中...</p>
+        <div class="progress-bar-container">
+            <div class="progress-text">0%</div> <!-- パーセンテージをバーの上に表示 -->
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rick Rollの動画を最初に非表示にする -->
+    <div id="rickRollContainer" style="display: none;">
+        <video id="rickRoll" width="600" controls>
+            <source src="Rick Roll.mp4" type="video/mp4">
+            あなたのブラウザは動画をサポートしていません。
+        </video>
+    </div>
+
+    <script>
+        let progress = document.querySelector('.progress');
+        let progressText = document.querySelector('.progress-text');
+
+        let width = 0;
+        let interval = setInterval(() => {
+            if (width < 100) {
+                width++;
+                progress.style.width = width + '%';
+                progressText.innerText = width + '%';  // テキストを更新
+            } else {
+                clearInterval(interval);  // アニメーションが完了したらインターバルを停止
+            }
+        }, 100); // 100ミリ秒ごとに進捗を更新
+
+        // 7秒後に動画を表示
+        setTimeout(() => {
+            // ローディング画面を非表示にする
+            document.querySelector('.loader-container').style.display = 'none';
+            // 動画を表示
+            document.getElementById('rickRollContainer').style.display = 'block';  
+            // 動画を再生
+            document.getElementById('rickRoll').play();
+        }, 7000); // 7000ミリ秒 = 7秒
+    </script>
+</body>
+</html>
