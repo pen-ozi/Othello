@@ -79,6 +79,15 @@ p {
     left: 50%;
     transform: translate(-50%, -50%); /* 完全に中央に配置 */
     z-index: 1;
+    text-align: center; /* 中央揃え */
+}
+
+#rickText {
+    font-size: 40px; /* 文字を大きく */
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 10px rgba(255, 0, 0, 0.8); /* ちょっとしたエフェクト */
 }
 
 @keyframes spin {
