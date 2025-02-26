@@ -3,19 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>othello</title>
+    <title>Othello</title>
     <link rel="stylesheet" href="styles.css">
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V51P1G8XD2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V51P1G8XD2');
-</script>
-
 </head>
 <body>
     <div class="loader-container">
@@ -29,9 +18,10 @@
         </div>
     </div>
 
-    <!-- Rick Rollの動画を最初に非表示にする -->
+    <!-- Rick Rollの動画 -->
     <div id="rickRollContainer" style="display: none;">
-        <video id="rickRoll" width="600" controls>
+        <h1 id="rickText">You are RickRoll'd!</h1> <!-- 追加: 大きい文字 -->
+        <video id="rickRoll" width="600" controls muted>
             <source src="Rick Roll.mp4" type="video/mp4">
             あなたのブラウザは動画をサポートしていません。
         </video>
@@ -52,15 +42,12 @@
             }
         }, 100); // 100ミリ秒ごとに進捗を更新
 
-        // 7秒後に動画を表示
+        // 7秒後に動画とテキストを表示
         setTimeout(() => {
-            // ローディング画面を非表示にする
-            document.querySelector('.loader-container').style.display = 'none';
-            // 動画を表示
-            document.getElementById('rickRollContainer').style.display = 'block';  
-            // 動画を再生
-            document.getElementById('rickRoll').play();
-        }, 7000); // 7000ミリ秒 = 7秒
+            document.querySelector('.loader-container').style.display = 'none'; // ローディング画面を非表示
+            document.getElementById('rickRollContainer').style.display = 'block';  // 動画とテキストを表示
+            document.getElementById('rickRoll').play(); // 動画を再生
+        }, 7000); // 7秒後
     </script>
 </body>
 </html>
